@@ -46,7 +46,7 @@ export class ToolboxCategory
   static nestedPadding = 19;
 
   /** The width in pixels of the strip of colour next to each category. */
-  static borderWidth = 8;
+  static borderWidth = 1.25;
 
   /**
    * The default colour of the category. This is used as the background colour
@@ -320,7 +320,7 @@ export class ToolboxCategory
   protected addColourBorder_(colour: string) {
     if (colour) {
       const border =
-        ToolboxCategory.borderWidth + 'px solid ' + (colour || '#ddd');
+        ToolboxCategory.borderWidth + 'rem solid ' + (colour || '#ddd');
       if (this.workspace_.RTL) {
         this.rowDiv_!.style.borderRight = border;
       } else {
@@ -662,9 +662,16 @@ export type CssConfig = ToolboxCategory.CssConfig;
 
 /** CSS for Toolbox.  See css.js for use. */
 Css.register(`
-.blocklyTreeRow:not(.blocklyTreeSelected):hover {
-  background-color: rgba(255, 255, 255, .2);
+
+.blocklyTreeRoot {
+  padding: 5px 0;
 }
+
+.blocklyTreeRoot:focus {
+  outline: none;
+}
+  
+
 
 .blocklyToolboxDiv[layout="h"] .blocklyToolboxCategory {
   margin: 1px 5px 1px 0;
@@ -675,24 +682,58 @@ Css.register(`
 }
 
 .blocklyTreeRow {
-  height: 22px;
+  height: 24px;
   line-height: 22px;
-  margin-bottom: 3px;
-  padding-right: 8px;
+  margin: 5px 10px 10px;
   white-space: nowrap;
+  border-radius: 4px;
+}
+
+.blocklyHorizontalTree {
+  float: left;
+  margin: 1px 5px 8px 10px;
+}
+.blocklyHorizontalTreeRtl {
+  float: right;
+  margin: 1px 10px 8px 5px;
 }
 
 .blocklyToolboxDiv[dir="RTL"] .blocklyTreeRow {
   margin-left: 8px;
-  padding-right: 0;
+}
+
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+.blocklyTreeSeparator {
+  border-bottom: none !important;
+  height: 0;
+  margin: 10px 0;
+}
+
+.blocklyTreeSeparatorHorizontal {
+  border-right: solid 1px rgba(255,255,255,0.15);
+  width: 0;
+  padding: 5px 0;
+  margin: 0 5px;
 }
 
 .blocklyTreeIcon {
   background-image: url(<<<PATH>>>/sprites.png);
   height: 16px;
   vertical-align: middle;
-  visibility: hidden;
   width: 16px;
+  margin-left: -1.125rem;
+  margin-right: .5rem;
+}
+ 
+.blocklyTreeIconClosedLtr {
+  background-position: -32px -1px;
+}
+
+.blocklyTreeIconClosedRtl {
+  background-position: 0 -1px;
 }
 
 .blocklyTreeIconClosed {
@@ -715,14 +756,26 @@ Css.register(`
   background-position: -16px -1px;
 }
 
+.blocklyTreeSelected>.blocklyTreeIconClosedLtr {
+  background-position: -32px 0px;
+}
+
+.blocklyTreeSelected>.blocklyTreeIconClosedRtl {
+  background-position: 0 -17px;
+}
+
 .blocklyTreeSelected>.blocklyTreeIconOpen {
   background-position: -16px -17px;
 }
 
+.blocklyTreeIconNone, .blocklyTreeSelected>.blocklyTreeIconNone {
+  background-position: -48px -1px;
+}
+
 .blocklyTreeLabel {
   cursor: default;
-  font: 16px sans-serif;
-  padding: 0 3px;
+  font: 14px sans-serif;
+  padding: 0 6px 0 0;
   vertical-align: middle;
 }
 

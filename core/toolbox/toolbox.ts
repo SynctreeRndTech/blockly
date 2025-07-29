@@ -1101,13 +1101,14 @@ Css.register(`
 
 /* Category tree in Toolbox. */
 .blocklyToolboxDiv {
-  background-color: #ddd;
+ background-color: rgb(41, 44, 51);
   overflow-x: visible;
   overflow-y: auto;
-  padding: 4px 0 4px 0;
   position: absolute;
-  z-index: 70;  /* so blocks go under toolbox when dragging */
-  -webkit-tap-highlight-color: transparent;  /* issue #1345 */
+  z-index: 70;
+  -webkit-tap-highlight-color: transparent;
+  border-right: 1px solid hsla(0,0%,100%,.2)
+  
 }
 
 .blocklyToolboxContents {

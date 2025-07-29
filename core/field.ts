@@ -354,7 +354,7 @@ export abstract class Field<T = any>
       Svg.RECT,
       {
         'rx': this.getConstants()!.FIELD_BORDER_RECT_RADIUS,
-        'ry': this.getConstants()!.FIELD_BORDER_RECT_RADIUS,
+        'ry': this.getConstants()!.FIELD_BORDER_RECT_RADIUS + 2,
         'x': 0,
         'y': 0,
         'height': this.size_.height,
@@ -845,7 +845,7 @@ export abstract class Field<T = any>
       totalHeight = Math.max(totalHeight, constants!.FIELD_BORDER_RECT_HEIGHT);
     }
 
-    this.size_.height = totalHeight;
+    this.size_.height = totalHeight * 1.4;
     this.size_.width = totalWidth;
 
     this.positionTextElement_(xOffset, contentWidth);

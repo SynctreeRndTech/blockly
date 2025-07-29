@@ -549,6 +549,7 @@ export class FieldDropdown extends Field<string> {
       );
     }
     this.size_.width = imageWidth + arrowWidth + xPadding * 2;
+    // this.size_.height = height * 1.4;
     this.size_.height = height;
 
     let arrowX = 0;

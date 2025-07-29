@@ -111,14 +111,19 @@ let content = `
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 1000;
+  z-index: 1403;
   display: none;
   border: 1px solid;
-  border-color: #dadce0;
-  background-color: #fff;
+  border-color: hsla(0,0%,100%,.2);
+  background-color: #292c33;
   border-radius: 2px;
   padding: 4px;
   box-shadow: 0 0 3px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownDiv .goog-menuitem-content, 
+.blocklyWidgetDiv .goog-menuitem-content {
+  color: hsla(0, 0%, 100%, .8);
+  font-size: 14px;
 }
 
 .blocklyDropDownDiv.blocklyFocused {
@@ -278,13 +283,12 @@ let content = `
 
 .blocklyIconGroup:not(:hover),
 .blocklyIconGroupReadonly {
-  opacity: .6;
+  opacity: .85;
 }
 
 .blocklyIconShape {
-  fill: #00f;
-  stroke: #fff;
-  stroke-width: 1px;
+  fill: transparent;
+  stroke-width: 0;
 }
 
 .blocklyIconSymbol {
@@ -458,6 +462,8 @@ input[type=number] {
   padding: 6px 15px;
   white-space: nowrap;
 }
+
+
 
 /* State: disabled. */
 .blocklyMenuItemDisabled {

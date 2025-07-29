@@ -221,7 +221,8 @@ export class ConstantProvider {
   FIELD_TEXT_FONTWEIGHT = 'normal';
 
   /** Text font family. */
-  FIELD_TEXT_FONTFAMILY = 'sans-serif';
+  //   FIELD_TEXT_FONTFAMILY = 'sans-serif';
+  FIELD_TEXT_FONTFAMILY = '"Roboto", "Helvetica", "Arial", sans-serif';
 
   /**
    * Height of text.  This constant is dynamically set in
@@ -1135,22 +1136,23 @@ export class ConstantProvider {
       `${selector} .blocklyNonEditableText>rect,`,
       `${selector} .blocklyEditableText>rect {`,
         `fill: ${this.FIELD_BORDER_RECT_COLOUR};`,
-        `fill-opacity: .6;`,
-        `stroke: none;`,
+        `fill-opacity: .15;`,
+        `stroke: ${this.FIELD_BORDER_RECT_COLOUR};`,
+        `stroke-opacity: .1;`,
       `}`,
       `${selector} .blocklyNonEditableText>text,`,
       `${selector} .blocklyEditableText>text {`,
-        `fill: #000;`,
+        `fill: #fff;`,
       `}`,
 
       // Flyout labels.
       `${selector} .blocklyFlyoutLabelText {`,
-        `fill: #000;`,
+        `fill: #fff;`,
       `}`,
 
       // Bubbles.
       `${selector} .blocklyText.blocklyBubbleText {`,
-        `fill: #000;`,
+        `fill: #fff;`,
       `}`,
 
       // Editable field hover.

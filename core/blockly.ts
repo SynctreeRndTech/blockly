@@ -177,6 +177,7 @@ import * as renderManagement from './render_management.js';
 import {RenderedConnection} from './rendered_connection.js';
 import * as blockRendering from './renderers/common/block_rendering.js';
 import * as geras from './renderers/geras/geras.js';
+import * as SyncTree from './renderers/synctree/synctree.js';
 import * as thrasos from './renderers/thrasos/thrasos.js';
 import * as zelos from './renderers/zelos/zelos.js';
 import {Scrollbar} from './scrollbar.js';
@@ -442,6 +443,7 @@ export {
   Extensions,
   Procedures,
   ShortcutItems,
+  SyncTree,
   Themes,
   Tooltip,
   Touch,

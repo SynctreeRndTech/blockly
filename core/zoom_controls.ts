@@ -213,9 +213,10 @@ export class ZoomControls implements IPositionable {
         );
       }
     } else {
-      const zoomInTranslateY = this.zoomResetGroup
-        ? this.LARGE_SPACING + this.HEIGHT
-        : 0;
+      //   const zoomInTranslateY = this.zoomResetGroup
+      //     ? this.LARGE_SPACING + this.HEIGHT
+      //     : 0;
+      const zoomInTranslateY = 0;
       this.zoomInGroup?.setAttribute(
         'transform',
         'translate(0, ' + zoomInTranslateY + ')',
@@ -226,9 +227,19 @@ export class ZoomControls implements IPositionable {
         'transform',
         'translate(0, ' + zoomOutTranslateY + ')',
       );
+      if (this.zoomResetGroup) {
+        const zoomResetTranslateY =
+          zoomInTranslateY + this.SMALL_SPACING + this.HEIGHT;
+        this.zoomResetGroup.setAttribute(
+          'transform',
+          'translate(0, ' + zoomResetTranslateY * 2 + ')',
+        );
+      }
     }
 
-    this.top = positionRect.top;
+    // zoom control position
+    // this.top = positionRect.top;
+    this.top = 70;
     this.left = positionRect.left;
     this.svgGroup?.setAttribute(
       'transform',
@@ -480,14 +491,14 @@ export class ZoomControls implements IPositionable {
 /** CSS for zoom controls.  See css.js for use. */
 Css.register(`
 .blocklyZoom>image, .blocklyZoom>svg>image {
-  opacity: .4;
+  opacity: .7;
 }
 
 .blocklyZoom>image:hover, .blocklyZoom>svg>image:hover {
-  opacity: .6;
+  opacity: .9;
 }
 
 .blocklyZoom>image:active, .blocklyZoom>svg>image:active {
-  opacity: .8;
+  opacity: 1;
 }
 `);
